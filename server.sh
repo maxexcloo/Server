@@ -25,6 +25,7 @@ function install_mysql {
 function install_nginx {
 	aptitude install nginx
 	cp -R settings/nginx /etc/
+	ln -s /etc/nginx/sites-available/main /etc/nginx/sites-enabled/
 	rm /etc/nginx/conf.d/php.conf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 	invoke-rc.d nginx restart
 }
