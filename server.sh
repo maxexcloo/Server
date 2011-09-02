@@ -16,6 +16,7 @@ function install_extra {
 	aptitude install php5-apc
 	aptitude install php5-gd
 	invoke-rc.d php5-fpm restart
+	invoke-rc.d nginx restart
 }
 
 function install_mysql {
