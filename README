@@ -4,7 +4,7 @@ If you want to use the minimal script, run it first.
 No warranty. For help come on #Frantech on irc.dairc.net and look for maxexcloo!
 
 >> DOWNLOAD <<
-wget --no-check-certificate -O server.tar.gz http://github.com/maxexcloo/Server/tarball/master; tar zxvf server.gz
+wget --no-check-certificate -O server.tar.gz http://github.com/maxexcloo/Server/tarball/master; tar zxvf server.tar.gz; cd *Server*
 
 >> INSTRUCTIONS <<
 You must run this script with options. They are outlined below:
