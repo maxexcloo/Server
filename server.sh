@@ -9,7 +9,6 @@ function install_exim {
 
 function install_extra {
 	aptitude install php5-gd
-	gpasswd -a main www-data
 }
 
 function install_mysql {
@@ -54,6 +53,7 @@ case "$1" in
 		install_php
 		install_mysql
 		install_exim
+		install_extra
 	;;
 	# Installs Extra Packages
 	extra)
