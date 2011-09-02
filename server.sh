@@ -16,7 +16,7 @@ function install_mysql {
 	aptitude install mysql-server
 	aptitude install php5-mysql
 	invoke-rc.d mysql stop
-	mv settings/mysql /etc/
+	cp -R settings/mysql /etc/
 	rm -f /var/lib/mysql/ib*
 	invoke-rc.d mysql start
 	mysql_secure_installation
@@ -24,16 +24,16 @@ function install_mysql {
 
 function install_nginx {
 	aptitude install nginx
-	mv settings/nginx /etc/
+	cp -R settings/nginx /etc/
 	rm /etc/nginx/conf.d/php.conf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 	invoke-rc.d nginx restart
 }
 
 function install_php {
 	aptitude install php-fpm
-	mv settings/php5 /etc/
+	cp -R settings/php5 /etc/
 	rm /etc/php5/fpm/pool.d/www.conf
-	mv settings/nginx/conf.d/php.conf /etc/nginx/conf.d/php.conf
+	cp -R settings/nginx/conf.d/php.conf /etc/nginx/conf.d/php.conf
 	invoke-rc.d php5-fpm restart
 }
 
