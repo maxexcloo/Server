@@ -4,6 +4,17 @@ server {
 	index index.html index.php;
 	include /etc/nginx/conf.d/*.conf;
 
+	location ~ ^.+.(jpg|jpeg|gif|css|png|js|ico|xml)$ {
+		add_header Cache-Control "public";
+		add_header Pragma "public";
+		access_log off;
+		expires 30d;
+	}
+
+	location ~ /\.git {
+		deny  all;
+	}
+
 	location ~ /\.ht {
 		deny  all;
 	}
