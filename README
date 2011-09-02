@@ -1,0 +1,18 @@
+>> NOTES <<
+Run on a fresh VPS under root!
+If you want to use the minimal script, run it first.
+No warranty. For help come on #Frantech on irc.dairc.net and look for maxexcloo!
+
+>> DOWNLOAD <<
+wget --no-check-certificate -O master.tar.gz http://github.com/maxexcloo/Server/tarball/master; tar zxvf *.gz; cd *Server*; sh server.sh
+
+>> INSTRUCTIONS <<
+You must run this script with options. They are outlined below:
+For a minimal Dropbear based install: sh minimal.sh dropbear
+For a minimal OpenSSH based install: sh minimal.sh ssh
+To install extra packages defined in lists/extra: sh minimal.sh extra
+To set the clock, clean files and create a user: sh minimal.sh configure
+
+>> CREDITS <<
+cedr @ daIRC: General Help
+LEA's Brilliant LowEndScript: http://www.github.com/lowendbox/lowendscript/
