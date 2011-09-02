@@ -30,7 +30,7 @@ function install_nginx {
 }
 
 function install_php {
-	aptitude install php-fpm
+	aptitude install php5-fpm
 	cp -R settings/php5 /etc/
 	rm /etc/php5/fpm/pool.d/www.conf
 	cp -R settings/nginx/conf.d/php.conf /etc/nginx/conf.d/php.conf
