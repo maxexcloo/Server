@@ -1,5 +1,6 @@
 >> NOTES <<
-Run on a fresh VPS under root!
+Run on a fresh VPS under root with the DotDeb repository enabled.
+The server is initially configured with a root of /home/main/http, change it in /etc/nginx/sites-available/main.
 If you want to use the minimal script, run it first.
 No warranty. For help come on #Frantech on irc.dairc.net and look for maxexcloo!
 
