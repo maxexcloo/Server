@@ -3,6 +3,7 @@ cd $(dirname $0)
 
 function install_basic {
 	aptitude update
+	aptitude clean
 }
 
 function install_exim {
@@ -53,6 +54,7 @@ case "$1" in
 		install_basic
 		install_nginx
 		install_php
+		install_basic
 	;;
 	# Installs Full Packages
 	full)
@@ -62,6 +64,7 @@ case "$1" in
 		install_mysql
 		install_exim
 		install_extra
+		install_basic
 	;;
 	# Installs Extra Packages
 	extra)
