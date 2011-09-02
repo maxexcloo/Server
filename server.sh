@@ -1,6 +1,10 @@
 #!/bin/bash
 cd $(dirname $0)
 
+function install_basic {
+	aptitude update
+}
+
 function install_exim {
 	aptitude install exim4
 	sed -i "s/dc_eximconfig_configtype='local'/dc_eximconfig_configtype='internet'/" /etc/exim4/update-exim4.conf.conf
@@ -8,7 +12,9 @@ function install_exim {
 }
 
 function install_extra {
+	aptitude install php5-apc
 	aptitude install php5-gd
+	invoke-rc.d php5-fpm restart
 }
 
 function install_mysql {
@@ -44,11 +50,13 @@ function install_php {
 case "$1" in
 	# Installs Basic Packages
 	basic)
+		install_basic
 		install_nginx
 		install_php
 	;;
 	# Installs Full Packages
 	full)
+		install_basic
 		install_nginx
 		install_php
 		install_mysql
