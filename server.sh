@@ -14,7 +14,9 @@ function install_exim {
 
 function install_extra {
 	aptitude install php5-apc
+	aptitude install php5-cli
 	aptitude install php5-gd
+	aptitude install php5-sqlite
 	invoke-rc.d php5-fpm restart
 	invoke-rc.d nginx restart
 }
@@ -26,7 +28,6 @@ function install_mysql {
 	cp -R settings/mysql /etc/
 	rm -f /var/lib/mysql/ib*
 	invoke-rc.d mysql start
-	mysql_secure_installation
 }
 
 function install_nginx {
@@ -39,6 +40,7 @@ function install_nginx {
 
 function install_php {
 	aptitude install php5-fpm
+	sed -i "s/upload_max_filesize = 2M/upload_max_filesize = 128M/" /etc/php5/fpm/php.ini
 	cp -R settings/php5 /etc/
 	rm /etc/php5/fpm/pool.d/www.conf
 	cp -R settings/nginx/conf.d/php.conf /etc/nginx/conf.d/php.conf
