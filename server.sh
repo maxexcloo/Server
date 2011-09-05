@@ -40,10 +40,12 @@ function install_nginx {
 
 function install_php {
 	aptitude install php5-fpm
-	sed -i "s/upload_max_filesize = 2M/upload_max_filesize = 128M/" /etc/php5/fpm/php.ini
 	cp -R settings/php5 /etc/
-	rm /etc/php5/fpm/pool.d/www.conf
 	cp -R settings/nginx/conf.d/php.conf /etc/nginx/conf.d/php.conf
+	rm /etc/php5/fpm/pool.d/www.conf
+	sed -i '/short_open_tag/ c\short_open_tag = On' /etc/php5/fpm/php.ini
+	sed -i '/upload_max_filesize/ c\upload_max_filesize = 200M' /etc/php5/fpm/php.ini
+	sed -i '/post_max_size/ c\post_max_size = 200M' /etc/php5/fpm/php.ini
 	invoke-rc.d php5-fpm restart
 }
 
