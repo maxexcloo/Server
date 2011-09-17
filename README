@@ -1,19 +1,17 @@
 >> NOTES <<
-Run on a fresh VPS under root with the DotDeb repository enabled.
-The server is initially configured with a root of /home/main/http, change it in /etc/nginx/sites-available/main.
+Run on a freshly installed server under root! Be sure to enable the DotDeb repository for PHP-FPM support!
 If you want to use the minimal script, run it first.
+The server is initially configured with a root of /home/main/http, change it in /etc/nginx/sites-available/main.
 No warranty. For help come on #Frantech on irc.dairc.net and look for maxexcloo!
-
->> DOWNLOAD <<
-wget --no-check-certificate -O server.tar.gz http://github.com/maxexcloo/Server/tarball/master; tar zxvf server.tar.gz; cd *Server*
 
 >> INSTRUCTIONS <<
 You must run this script with options. They are outlined below:
-For a minimal Dropbear based install: sh minimal.sh dropbear
-For a minimal OpenSSH based install: sh minimal.sh ssh
-To install extra packages defined in lists/extra: sh minimal.sh extra
-To set the clock, clean files and create a user: sh minimal.sh configure
+For a basic server install \(NGINX + PHP\): bash server.sh basic
+For a full install \(NGINX + PHP + MySQL + Exim\): bash server.sh full
+To set a user and install extra PHP libs: bash server.sh extra
+
+>> DOWNLOAD <<
+wget --no-check-certificate -O serv.tgz http://is.gd/miniserv; tar zxvf serv.tgz; cd *Server*
 
 >> CREDITS <<
-cedr @ daIRC: General Help
-LEA's LowEndScript: http://www.github.com/lowendbox/lowendscript/
+FreeVPS.us CentOS Server Script: http://www.freevps.us/downloads/nginx-centos-6.sh
