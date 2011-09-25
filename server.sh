@@ -32,17 +32,17 @@ function install_mysql {
 
 function install_nginx {
 	apt-get install nginx
+	rm /etc/nginx/conf.d/* /etc/nginx/sites-available/* /etc/nginx/sites-enabled/*
 	cp -R settings/nginx /etc/
 	ln -s /etc/nginx/sites-available/main /etc/nginx/sites-enabled/
-	rm /etc/nginx/conf.d/php.conf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 	invoke-rc.d nginx restart
 }
 
 function install_php {
 	apt-get install php5-fpm
+	rm /etc/php5/fpm/pool.d/*
 	cp -R settings/php5 /etc/
 	cp -R settings/nginx/conf.d/php.conf /etc/nginx/conf.d/php.conf
-	rm /etc/php5/fpm/pool.d/www.conf
 	invoke-rc.d php5-fpm restart
 }
 
