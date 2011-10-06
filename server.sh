@@ -68,8 +68,6 @@ case "$1" in
 	# Shows Help
 	*)
 		echo \>\> You must run this script with options. They are outlined below:
-		echo For a basic server install \(NGINX + PHP\): bash server.sh basic
 		echo For a full install \(NGINX + PHP + MySQL + Exim\): bash server.sh full
-		echo To set a user and install extra PHP libs: bash server.sh extra
 	;;
 esac

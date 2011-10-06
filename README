@@ -6,9 +6,7 @@ No warranty. For help come on #Frantech on irc.dairc.net and look for maxexcloo!
 
 >> INSTRUCTIONS <<
 You must run this script with options. They are outlined below:
-For a basic server install \(NGINX + PHP\): bash server.sh basic
-For a full install \(NGINX + PHP + MySQL + Exim\): bash server.sh full
-To set a user and install extra PHP libs: bash server.sh extra
+For a full install (NGINX + PHP + MySQL + Exim): bash server.sh full
 
 >> DOWNLOAD <<
 wget --no-check-certificate -O serv.tgz http://is.gd/miniserv; tar zxvf serv.tgz; cd *Server*
