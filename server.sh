@@ -2,28 +2,32 @@
 cd $(dirname $0)
 
 function install_basic {
-	apt-get update
-	apt-get clean
+	apt-get -q -y update
+	apt-get -q -y clean
 }
 
 function install_exim {
-	apt-get install exim4
+	apt-get -q -y install exim4
 	sed -i "s/dc_eximconfig_configtype='local'/dc_eximconfig_configtype='internet'/" /etc/exim4/update-exim4.conf.conf
 	invoke-rc.d exim4 restart
 }
 
 function install_extra {
-	apt-get install php5-apc
-	apt-get install php5-cli
-	apt-get install php5-gd
-	apt-get install php5-sqlite
+	apt-get -q -y install php5-apc
+	apt-get -q -y install php5-cli
+	apt-get -q -y install php5-gd
+	apt-get -q -y install php5-sqlite
 	invoke-rc.d php5-fpm restart
 	invoke-rc.d nginx restart
 }
 
+function install_messages {
+	echo Be sure to run mysql_secure_installation to secure your MySQL install!
+}
+
 function install_mysql {
-	apt-get install mysql-server
-	apt-get install php5-mysql
+	apt-get -q -y install mysql-server
+	apt-get -q -y install php5-mysql
 	invoke-rc.d mysql stop
 	cp -R settings/mysql /etc/
 	rm -f /var/lib/mysql/ib*
@@ -31,14 +35,14 @@ function install_mysql {
 }
 
 function install_nginx {
-	apt-get install nginx
+	apt-get -q -y install nginx
 	rm -rf /etc/nginx/conf.d/* /etc/nginx/sites-* /var/log/ngnix/*
 	cp -R settings/nginx /etc/
 	invoke-rc.d nginx restart
 }
 
 function install_php {
-	apt-get install php5-fpm
+	apt-get -q -y install php5-fpm
 	rm /etc/php5/fpm/pool.d/*
 	cp -R settings/php5 /etc/
 	cp -R settings/nginx/conf.d/php.conf /etc/nginx/conf.d/php.conf
@@ -50,14 +54,7 @@ function install_php {
 #################
 
 case "$1" in
-	# Installs Basic Packages
-	basic)
-		install_basic
-		install_nginx
-		install_php
-		install_basic
-	;;
-	# Installs Full Packages
+	# Installs Packages
 	full)
 		install_basic
 		install_nginx
@@ -66,10 +63,7 @@ case "$1" in
 		install_exim
 		install_extra
 		install_basic
-	;;
-	# Installs Extra Packages
-	extra)
-		install_extra
+		install_messages
 	;;
 	# Shows Help
 	*)
