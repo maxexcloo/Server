@@ -32,9 +32,8 @@ function install_mysql {
 
 function install_nginx {
 	apt-get install nginx
-	rm /etc/nginx/conf.d/* /etc/nginx/sites-available/* /etc/nginx/sites-enabled/*
+	rm -rf /etc/nginx/conf.d/* /etc/nginx/sites-* /var/log/ngnix/*
 	cp -R settings/nginx /etc/
-	ln -s /etc/nginx/sites-available/main /etc/nginx/sites-enabled/
 	invoke-rc.d nginx restart
 }
 

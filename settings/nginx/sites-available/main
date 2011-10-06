@@ -1,6 +1,0 @@
-server {
-	root /home/main/http;
-	server_name localhost;
-	index index.html index.php;
-	include /etc/nginx/conf.d/*.conf;
-}
