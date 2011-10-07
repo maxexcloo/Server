@@ -12,4 +12,5 @@ For a full install (NGINX + PHP + MySQL + Exim): bash server.sh full
 wget --no-check-certificate -O serv.tgz http://is.gd/miniserv; tar zxvf serv.tgz; cd *Server*
 
 >> CREDITS <<
+cedr @ daIRC: vHost Style
 FreeVPS.us CentOS Server Script: http://www.freevps.us/downloads/nginx-centos-6.sh
