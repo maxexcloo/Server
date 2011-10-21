@@ -36,8 +36,11 @@ function install_mysql {
 
 function install_nginx {
 	apt-get -q -y install nginx
+	mkdir /tmp/confbackup
+	cp /etc/nginx/conf.d/{hosts,local}.conf /tmp/confbackup/
 	rm -rf /etc/nginx/conf.d/* /etc/nginx/sites-* /var/log/ngnix/*
 	cp -R settings/nginx /etc/
+	mv /tmp/confbackup/{hosts,local}.conf /etc/nginx/conf.d/
 	invoke-rc.d nginx restart
 }
 
