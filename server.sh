@@ -15,7 +15,9 @@ function install_exim {
 function install_extra {
 	apt-get -q -y install php5-apc
 	apt-get -q -y install php5-cli
+	apt-get -q -y install php5-curl
 	apt-get -q -y install php5-gd
+	apt-get -q -y install php5-pear
 	apt-get -q -y install php5-sqlite
 	invoke-rc.d php5-fpm restart
 	invoke-rc.d nginx restart
