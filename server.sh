@@ -17,8 +17,9 @@ function install_extra {
 	apt-get -q -y install php5-cli
 	apt-get -q -y install php5-curl
 	apt-get -q -y install php5-gd
-	apt-get -q -y install php-pear
+	apt-get -q -y install php5-mcrypt
 	apt-get -q -y install php5-sqlite
+	apt-get -q -y install php-pear
 	invoke-rc.d php5-fpm restart
 	invoke-rc.d nginx restart
 }
