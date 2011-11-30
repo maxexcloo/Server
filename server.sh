@@ -19,7 +19,6 @@ function install_extra {
 	apt-get -q -y install php5-gd
 	apt-get -q -y install php5-mcrypt
 	apt-get -q -y install php5-sqlite
-	apt-get -q -y install php-pear
 	invoke-rc.d php5-fpm restart
 	invoke-rc.d nginx restart
 }
@@ -38,18 +37,16 @@ function install_mysql {
 }
 
 function install_nginx {
+	mkdir ~/backups/
+	cp /etc/nginx/conf.d/ ~/backups/
 	apt-get -q -y install nginx
-	mkdir /tmp/confbackup
-	cp /etc/nginx/conf.d/{hosts,local}.conf /tmp/confbackup/
-	rm -rf /etc/nginx/conf.d/* /etc/nginx/sites-* /var/log/ngnix/*
+	rm -rf /etc/nginx/conf.d/* /etc/nginx/sites-*
 	cp -R settings/nginx /etc/
-	mv /tmp/confbackup/{hosts,local}.conf /etc/nginx/conf.d/
 	invoke-rc.d nginx restart
 }
 
 function install_php {
 	apt-get -q -y install php5-fpm
-	rm /etc/php5/fpm/pool.d/*
 	cp -R settings/php5 /etc/
 	cp -R settings/nginx/conf.d/php.conf /etc/nginx/conf.d/php.conf
 	invoke-rc.d php5-fpm restart
