@@ -38,7 +38,7 @@ function install_mysql {
 
 function install_nginx {
 	mkdir ~/backups/
-	cp /etc/nginx/conf.d/ ~/backups/
+	cp -r /etc/nginx/conf.d/ ~/backups/
 	apt-get -q -y install nginx
 	rm -rf /etc/nginx/conf.d/* /etc/nginx/sites-*
 	cp -R settings/nginx /etc/
