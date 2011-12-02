@@ -1,7 +1,7 @@
 >> NOTES <<
 Run on a freshly installed server under root! Be sure to enable the DotDeb repository for PHP-FPM support!
 If you want to use the minimal script, run it first.
-The server is initially configured with a root of /home/main/http, change it in /etc/nginx/sites-available/main.
+The server is initially configured with a root of /home/main/http, change it in /etc/nginx/conf.d/hosts.d/main.conf.
 No warranty. For help come on #Frantech on irc.dairc.net and look for maxexcloo!
 
 >> INSTRUCTIONS <<
