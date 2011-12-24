@@ -1,2 +1,0 @@
-*/2 * * * * chmod -R o= /home/*/http/ >/dev/null 2>&1
-*/2 * * * * bash -c "for name in /home/*; do chown -R $(basename $name):www-data /home/$(basename $name)/http/; done" >/dev/null 2>&1

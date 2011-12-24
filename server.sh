@@ -33,6 +33,10 @@ function install_extra {
 	apt-get -q -y install php5-mcrypt
 	# Install PHP SQLite  Library
 	apt-get -q -y install php5-sqlite
+	# Install Apache Utilities
+	apt-get -q -y install apache2-utils
+	# Install Siege Benchmark
+	apt-get -q -y install siege
 	# Restart PHP-FPM To Load Libraries
 	invoke-rc.d php5-fpm restart
 	# Restart Nginx
